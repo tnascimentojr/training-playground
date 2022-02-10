@@ -1,7 +1,5 @@
 def repeat() {
-	sh 'sleep 2s'
-	echo "Hello Word"
-	sh 'date'
+	'sh date >> text.txt'
 }
 
 pipeline {
@@ -13,7 +11,9 @@ pipeline {
     stages {
     	stage("build") {
 		steps {
-			repeat()
+			sh repeat()
+			sh 'sleep 10s'
+			sh repeat()
 		}
 	}
     }
