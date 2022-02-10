@@ -1,6 +1,6 @@
 pipeline {
 	parameters {
-		choice(choices: ['build', 'test'], name: 'REQUESTED_STAGE')
+		choice(name: 'CHOICE', choices: ['build', 'test'])
 	}
     agent { 
 		docker { 
@@ -10,7 +10,7 @@ pipeline {
     stages {
     	stage('build') {
 		when {
-			expression { params.REQUESTED_STAGE == 'build' }
+			environment name: 'CHOICE', value 'build'
 		}
 		steps {
 			sh 'echo "Running Build Step"'
@@ -18,7 +18,7 @@ pipeline {
 	}
 	stage('test') {
 		when {
-			expression { params.REQUESTED_STAGE == 'test' }
+			environment name: 'CHOICE', value 'build'
 		}
 		steps {
 			sh 'echo "Running Test Step"'
