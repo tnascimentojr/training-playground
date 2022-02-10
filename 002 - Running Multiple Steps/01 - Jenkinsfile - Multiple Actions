@@ -1,3 +1,9 @@
+def repeat() {
+	sh 'sleep 2s'
+	echo "Hello Word"
+	sh 'date'
+}
+
 pipeline {
     agent { 
 		docker { 
@@ -5,5 +11,10 @@ pipeline {
 		}
 	}
     stages {
+    	stage("build") {
+		steps {
+			repeat()
+		}
+	}
     }
 }
