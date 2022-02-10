@@ -1,5 +1,5 @@
 def repeat() {
-	'sh date >> text.txt'
+	sh 'date >> text.txt'
 }
 
 pipeline {
