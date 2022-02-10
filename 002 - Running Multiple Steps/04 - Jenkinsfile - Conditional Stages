@@ -13,7 +13,7 @@ pipeline {
 			environment name: 'CHOICE', value 'build'
 		}
 		steps {
-			sh 'echo "Running Build Step"'
+			echo 'Running Build Step'
 		}
 	}
 	stage('test') {
@@ -21,7 +21,7 @@ pipeline {
 			environment name: 'CHOICE', value 'build'
 		}
 		steps {
-			sh 'echo "Running Test Step"'
+			echo 'Running Test Step'
 		}
 	}
     }
