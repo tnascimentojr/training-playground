@@ -1,7 +1,7 @@
 pipeline {
 	parameters {
-		string(name: '$NAME', defaultValue: 'user', description: 'knock knock who is there?')
-		string(name: '$AGE', defaultValue: 'age', description: 'what is your age?')
+		string(name: 'NAME', defaultValue: 'user', description: 'knock knock who is there?')
+		string(name: 'AGE', defaultValue: 'age', description: 'what is your age?')
 	}
     agent { 
 		docker { 
