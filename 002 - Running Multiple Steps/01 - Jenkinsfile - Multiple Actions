@@ -9,11 +9,11 @@ pipeline {
 		}
 	}
     stages {
-    	stage("build") {
+    	stage('build') {
 		steps {
-			sh repeat()
+			repeat()
 			sh 'sleep 10s'
-			sh repeat()
+			repeat()
 		}
 	}
     }
