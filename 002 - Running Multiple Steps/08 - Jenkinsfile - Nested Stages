@@ -1,9 +1,22 @@
 pipeline {
-    agent { 
-		docker { 
-			image 'alpine:latest' 
+    agent any
+    
+    stages {
+    	parallel {
+		stage('Example Build') {
+			agent {docker 'maven:3.8.1-adoptopenjdk-11'}
+			steps {
+				echo 'Hello, Maven'
+				sh 'mvn --version'
+			}
+		}
+		stage('Example Test') {
+			agent {docker 'node:current-alpine3.14'}
+			steps {
+				echo 'Hello, NPM'
+				sh 'npm --version'
+			}
 		}
 	}
-    stages {
     }
 }
