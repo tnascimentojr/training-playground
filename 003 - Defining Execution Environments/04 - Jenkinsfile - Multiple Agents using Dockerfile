@@ -1,20 +1,33 @@
 pipeline {
-	agent none
-	
-    stages {
-    	stage('Example Build') {
-		agent {dockerfile{filename 'dockerfile_maven' dir '003 - Defining Execution Environments'}}
-		steps {
-			echo 'Hello, Maven'
-			sh 'mvn --version'
-		}
-	}
-	stage('Example Test') {
-		agent {dockerfile{filename 'dockerfile_node' dir '003 - Defining Execution Environments'}}
-		steps {
-			echo 'Hello, NPM'
-			sh 'npm --version'
-		}
-	}
-    }
+
+
+
+agent none
+
+stages {
+stage('Example Build') {
+agent {
+dockerfile {
+filename 'dockerfile_maven'
+dir '003 - Defining Execution Environments/'
+}
+}
+steps {
+echo 'Hello, Maven'
+sh 'mvn --version'
+}
+}
+stage('Example Test') {
+agent {
+dockerfile {
+filename 'dockerfile_node'
+dir '003 - Defining Execution Environments/'
+}
+}
+steps {
+echo 'Hello, NPM'
+sh 'npm -version'
+}
+}
+}
 }
