@@ -3,14 +3,14 @@ pipeline {
 	
     stages {
     	stage('Example Build') {
-		agent {dockerfile filename '04 - Dockerfile_MAVEN - Multiple Agents using Dockerfile' dir '003 - Defining Execution Environments'}
+		agent {dockerfile{filename '04 - Dockerfile_MAVEN - Multiple Agents using Dockerfile' dir '003 - Defining Execution Environments'}}
 		steps {
 			echo 'Hello, Maven'
 			sh 'mvn --version'
 		}
 	}
 	stage('Example Test') {
-		agent {dockerfile filename '04 - Dockerfile_NODE - Multiple Agents using Dockerfile' dir '003 - Defining Execution Environments'}
+		agent {dockerfile{filename '04 - Dockerfile_NODE - Multiple Agents using Dockerfile' dir '003 - Defining Execution Environments'}}
 		steps {
 			echo 'Hello, NPM'
 			sh 'npm --version'
