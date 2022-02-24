@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "curl www.google.com"
+                sh "curl www.google.com >> google.html"
             }
         }
     }
